@@ -1,6 +1,16 @@
 package com.FullStackApp.WebServices.user;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class User {
+	@Id
+	@GeneratedValue
+	private long id;
 	private String userName;
 	private String displayName;
 	private String email;
@@ -43,7 +53,5 @@ public class User {
 		return "User [userName=" + userName + ", displayName=" + displayName + ", email=" + email + ", password="
 				+ password + "]";
 	}
-	
-	
 
 }
