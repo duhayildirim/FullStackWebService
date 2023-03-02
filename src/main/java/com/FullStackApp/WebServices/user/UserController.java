@@ -2,6 +2,7 @@ package com.FullStackApp.WebServices.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +17,9 @@ public class UserController {
     // Logluyorum. Belki belirli timestamplerde filelara yazabilirim bu logları.
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
 
+    //farklı portlar arasında iletişim kuruyorum CORS hatası almamak için 
+    // @CrossOrigin diyerek özel headerları ekledim.
+    @CrossOrigin
     // bu fonksiyonun bir post requestlerinde çalışmasını istiyorum.@PostMapping 'in
     // içerisine bizim dinlediğimiz
     // url pathini endpointmi veriyorum.
