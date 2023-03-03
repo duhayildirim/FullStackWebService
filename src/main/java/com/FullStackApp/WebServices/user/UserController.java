@@ -16,11 +16,11 @@ public class UserController {
     // Restful web servis yazıyorum
     // Logluyorum. Belki belirli timestamplerde filelara yazabilirim bu logları.
     private static final Logger log = LoggerFactory.getLogger(UserController.class);
-    
     // dependency injection: Uygulama çalıştığında spring usercontrollerı oluştururken
     // UserRepository dependencini görüp obje oluşturacak ve set edecek
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
+
     //farklı portlar arasında iletişim kuruyorum CORS hatası almamak için 
     // @CrossOrigin diyerek özel headerları eklerim.
     // bu fonksiyonun bir post requestlerinde çalışmasını istiyorum.@PostMapping 'in
@@ -28,7 +28,7 @@ public class UserController {
     // url pathini endpointmi veriyorum.
     @PostMapping("/api/1.0/users")
     public void createUser(@RequestBody User user) {
-    	userRepository.save(user);
+        userService.save(user);
         log.info(user.toString());
     }
 }
