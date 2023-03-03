@@ -1,5 +1,6 @@
 package com.FullStackApp.WebServices.user;
 
+import com.FullStackApp.WebServices.shared.GenericResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,10 @@ public class UserController {
     // url pathini endpointmi veriyorum.
     @PostMapping("/api/1.0/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public void createUser(@RequestBody User user) {
+    public GenericResponse createUser(@RequestBody User user) {
         userService.save(user);
         log.info(user.toString());
+        GenericResponse response = new GenericResponse("user creation successful");
+        return response;
     }
 }

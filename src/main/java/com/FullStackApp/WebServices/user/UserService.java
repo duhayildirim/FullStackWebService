@@ -14,7 +14,6 @@ public class UserService {
     //    user repositoryi oluşturmuş olacak
     @Autowired
     public UserService(UserRepository userRepository) {
-
         this.userRepository = userRepository;
     }
 
