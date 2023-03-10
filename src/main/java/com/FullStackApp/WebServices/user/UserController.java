@@ -2,6 +2,7 @@ package com.FullStackApp.WebServices.user;
 
 import com.FullStackApp.WebServices.error.ApiError;
 import com.FullStackApp.WebServices.shared.GenericResponse;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -36,7 +37,7 @@ public class UserController {
     // url pathini endpointmi veriyorum.
     @PostMapping("/api/1.0/users")
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<?> createUser(@RequestBody User user) {
+    public ResponseEntity<?> createUser(@Valid @RequestBody User user) {
         ApiError error = new ApiError(400, "validation error", "/api/1.0/users");
         Map<String, String> validationErrors = new HashMap<>();
 
