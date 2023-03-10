@@ -14,7 +14,9 @@ public class User {
     private long id;
     @NotNull
     private String userName;
+    @NotNull
     private String displayName;
+    @NotNull
     private String email;
     private String password;
 
