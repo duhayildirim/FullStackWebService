@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -12,12 +14,17 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
-    @NotNull
+    @NotNull(message = "must be not null")
+    @Size(min = 3, max = 33, message = "size must be between 3 and 33")
     private String userName;
-    @NotNull
+    @NotNull(message = "must be not null")
+    @Size(min = 3, max = 33, message = "size must be between 3 and 33")
     private String displayName;
-    @NotNull
+    @NotNull(message = "must be not null")
+    @Pattern(regexp = "^(.+)@(\\S+)$", message = "invalid format")
     private String email;
+    @NotNull(message = "must be not null")
+    @Size(min = 6, max = 18, message = "size must be between 6 and 18")
     private String password;
 
     public String getUserName() {
