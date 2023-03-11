@@ -14,17 +14,19 @@ public class User {
     @Id
     @GeneratedValue
     private long id;
-    @NotNull(message = "must be not null")
-    @Size(min = 3, max = 33, message = "size must be between 3 and 33")
+    @NotNull(message = "must be not null.")
+    @Size(min = 3, max = 33, message = "size must be between 3 and 33.")
     private String userName;
-    @NotNull(message = "must be not null")
-    @Size(min = 3, max = 33, message = "size must be between 3 and 33")
+    @NotNull(message = "must be not null.")
+    @Size(min = 3, max = 33, message = "size must be between 3 and 33.")
+    @UniqueDisplayName
     private String displayName;
-    @NotNull(message = "must be not null")
-    @Pattern(regexp = "^(.+)@(\\S+)$", message = "invalid format")
+    @NotNull(message = "must be not null.")
+    @Pattern(regexp = "^(.+)@(\\S+)$", message = "invalid format.")
+    @UniqueEmail
     private String email;
-    @NotNull(message = "must be not null")
-    @Size(min = 6, max = 18, message = "size must be between 6 and 18")
+    @NotNull(message = "must be not null.")
+    @Size(min = 6, max = 18, message = "size must be between 6 and 18.")
     private String password;
 
     public String getUserName() {
